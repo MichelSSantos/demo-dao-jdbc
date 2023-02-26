@@ -70,7 +70,7 @@ public class SellerDaoJDBC implements SellerDao {
 			st = conn.prepareStatement(
 					"UPDATE seller "
 					+ "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? "
-					+ "WHERE Id = ?");
+					+ "WHERE Id = ? ");
 			
 			st.setString(1, obj.getName());
 			st.setString(2, obj.getEmail());
@@ -80,6 +80,8 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setInt(6, obj.getId());
 			
 			st.executeUpdate();
+			
+			
 		}
 		catch (SQLException e) {
 			throw new DbException(e.getMessage());
