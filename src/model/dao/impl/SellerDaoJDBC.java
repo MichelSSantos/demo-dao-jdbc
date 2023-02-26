@@ -95,11 +95,11 @@ public class SellerDaoJDBC implements SellerDao {
 	public void deleteById(Integer id) {
 		PreparedStatement st = null;
 		try {
-			st = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
-			
+			st = conn.prepareStatement("DELETE FROM seller WHERE id = ? ");
 			st.setInt(1, id);
-			
 			st.executeUpdate();
+			
+			
 		}
 		catch (SQLException e) {
 			throw new DbException(e.getMessage());
